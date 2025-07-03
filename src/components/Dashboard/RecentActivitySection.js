@@ -9,7 +9,7 @@ const RecentActivitySection = () => {
 
   const fetchActivities = async () => {
     try {
-      const res = await axios.get(`${API_URL}/activities?limit=50`);
+      const res = await axios.get(`${API_URL}/api/activities?limit=50`);
       setActivities(res.data);
     } catch (err) {
       console.error('Error fetching activities:', err);

@@ -14,7 +14,7 @@ const LeadsActivity = () => {
   useEffect(() => {
     const fetchLeads = async () => {
       try {
-        const response = await fetch(`${API_URL}/leads`);
+        const response = await fetch(`${API_URL}/api/leads`);
         const data = await response.json();
         setLeads(data);
         setFilteredLeads(data);
@@ -48,7 +48,7 @@ const LeadsActivity = () => {
 
   const handleStatusChange = async (leadId, newStatus) => {
     try {
-      const res = await fetch(`${API_URL}/leads/${leadId}`, {
+      const res = await fetch(`${API_URL}/api/leads/${leadId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status: newStatus }),
@@ -65,7 +65,7 @@ const LeadsActivity = () => {
 
   const handleTypeChange = async (leadId, newType) => {
     try {
-      const res = await fetch(`${API_URL}/leads/${leadId}`, {
+      const res = await fetch(`${API_URL}/api/leads/${leadId}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ type: newType }),

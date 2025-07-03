@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 // Use the base URL from environment variables
-const API_URL = process.env.REACT_APP_API_BASE_URL || 'https://sales-crm-backend-yepj.onrender.com/api';
+const API_URL = process.env.REACT_APP_API_BASE_URL;
 
 // Fetch all leads
 export const fetchLeads = async () => {
@@ -16,7 +16,7 @@ export const fetchLeads = async () => {
 // Upload leads CSV
 export const uploadLeadsCsv = async (formData, onUploadProgress) => {
   try {
-    const response = await axios.post(`${API_URL}/leads/upload`, formData, {
+    const response = await axios.post(`${API_URL}/api/leads/upload`, formData, {
       headers: {
         'Content-Type': 'multipart/form-data'
       },
@@ -31,7 +31,7 @@ export const uploadLeadsCsv = async (formData, onUploadProgress) => {
 // Bulk assign leads
 export const bulkAssignLeads = async (data) => {
   try {
-    const response = await axios.post(`${API_URL}/leads/bulk-assign`, data);
+    const response = await axios.post(`${API_URL}/api/leads/bulk-assign`, data);
     return response.data;
   } catch (error) {
     throw error;
@@ -41,7 +41,7 @@ export const bulkAssignLeads = async (data) => {
 // Fetch employees
 export const fetchEmployees = async () => {
   try {
-    const response = await axios.get(`${API_URL}/employees`);
+    const response = await axios.get(`${API_URL}/api/employees`);
     return response.data;
   } catch (error) {
     throw error;
@@ -51,7 +51,7 @@ export const fetchEmployees = async () => {
 // Update lead
 export const updateLead = async (id, leadData) => {
   try {
-    const response = await axios.put(`${API_URL}/leads/${id}`, leadData);
+    const response = await axios.put(`${API_URL}/api/leads/${id}`, leadData);
     return response.data;
   } catch (error) {
     throw error;
@@ -61,7 +61,7 @@ export const updateLead = async (id, leadData) => {
 // Delete lead
 export const deleteLead = async (id) => {
   try {
-    const response = await axios.delete(`${API_URL}/leads/${id}`);
+    const response = await axios.delete(`${API_URL}/api/leads/${id}`);
     return response.data;
   } catch (error) {
     throw error;
@@ -71,7 +71,7 @@ export const deleteLead = async (id) => {
 // Employee-related functions
 export const createEmployee = async (employeeData) => {
   try {
-    const response = await axios.post(`${API_URL}/employees`, employeeData);
+    const response = await axios.post(`${API_URL}/api/employees`, employeeData);
     return response.data;
   } catch (error) {
     throw error;
@@ -80,7 +80,7 @@ export const createEmployee = async (employeeData) => {
 
 export const deleteEmployee = async (employeeId) => {
   try {
-    const response = await axios.delete(`${API_URL}/employees/${employeeId}`);
+    const response = await axios.delete(`${API_URL}/api/employees/${employeeId}`);
     return response.data;
   } catch (error) {
     throw error;
@@ -89,7 +89,7 @@ export const deleteEmployee = async (employeeId) => {
 
 export const updateEmployee = async (employeeId, employeeData) => {
   try {
-    const response = await axios.put(`${API_URL}/employees/${employeeId}`, employeeData);
+    const response = await axios.put(`${API_URL}/api/employees/${employeeId}`, employeeData);
     return response.data;
   } catch (error) {
     throw error;

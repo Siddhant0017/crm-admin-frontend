@@ -66,8 +66,9 @@ const CsvUploadModal = ({ onClose, onUploadSuccess }) => {
     formData.append('file', file.file);
 
     try {
+      // This URL was incorrect - changing from /leads/upload-csv to match the backend route
       const response = await axios.post(
-        `${process.env.REACT_APP_API_BASE_URL}/leads/upload-csv`,
+        `${process.env.REACT_APP_API_BASE_URL}/api/leads/upload-csv`,
         formData,
         {
           headers: { 'Content-Type': 'multipart/form-data' },

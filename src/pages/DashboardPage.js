@@ -30,25 +30,25 @@ const DashboardPage = () => {
 
   // Fetch functions
   const fetchMetrics = async () => {
-    const res = await fetch(`${API_URL}/dashboard/metrics`);
+    const res = await fetch(`${API_URL}/api/dashboard/metrics`);
     const data = await res.json();
     setMetrics(data);
   };
 
   const fetchAnalytics = async () => {
-    const res = await fetch(`${API_URL}/dashboard/sales`);
+    const res = await fetch(`${API_URL}/api/dashboard/sales`);
     const data = await res.json();
     setAnalyticsData(data);
   };
 
   const fetchActivities = async () => {
-    const res = await fetch(`${API_URL}/activities?limit=10`);
+    const res = await fetch(`${API_URL}/api/activities?limit=10`);
     const data = await res.json();
     setRecentActivity(data);
   };
 
   const fetchEmployees = async () => {
-    const res = await fetch(`${API_URL}/employees/with-stats`);
+    const res = await fetch(`${API_URL}/api/employees/with-stats`);
     const data = await res.json();
     setEmployees(data.employees);
   };

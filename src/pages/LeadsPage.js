@@ -35,7 +35,7 @@ const LeadsPage = () => {
       });
 
       const response = await fetch(
-        `${process.env.REACT_APP_API_BASE_URL}/leads/admin?${queryParams}`
+        `${process.env.REACT_APP_API_BASE_URL}/api/leads/admin?${queryParams}`
       );
       const data = await response.json();
       setLeads(data.leads);

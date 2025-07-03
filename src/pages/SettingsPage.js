@@ -23,7 +23,7 @@ const SettingsPage = () => {
 
   const fetchAdminData = async () => {
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/admin/profile`);
+      const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/admin/profile`);
       const data = await response.json();
       setAdminData(data);
       setOriginalData(data);
@@ -43,7 +43,7 @@ const SettingsPage = () => {
   const handleSubmit = async () => {
     if (isEditing) {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/admin/profile`, {
+        const response = await fetch(`${process.env.REACT_APP_API_BASE_URL}/api/admin/profile`, {
           method: 'PUT',
           headers: {
             'Content-Type': 'application/json'

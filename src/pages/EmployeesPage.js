@@ -44,7 +44,7 @@ const EmployeesPage = () => {
         search: searchQuery,
       });
 
-      const response = await fetch(`${API_URL}/employees/with-stats?${queryParams}`);
+      const response = await fetch(`${API_URL}/api/employees/with-stats?${queryParams}`);
       const data = await response.json();
 
       setEmployees(data.employees || []);
@@ -70,7 +70,7 @@ const EmployeesPage = () => {
 
   const handleAddEmployee = async (formData) => {
     try {
-      const response = await fetch(`${API_URL}/employees`, {
+      const response = await fetch(`${API_URL}/api/employees`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
@@ -87,7 +87,7 @@ const EmployeesPage = () => {
   const handleEditEmployee = async (formData) => {
     try {
       const { language, location, ...editableData } = formData;
-      const response = await fetch(`${API_URL}/employees/${editEmployee._id}`, {
+      const response = await fetch(`${API_URL}/api/employees/${editEmployee._id}`, {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(editableData),
@@ -104,7 +104,7 @@ const EmployeesPage = () => {
 
   const handleDeleteEmployee = async (id) => {
     try {
-      const response = await fetch(`${API_URL}/employees/${id}`, {
+      const response = await fetch(`${API_URL}/api/employees/${id}`, {
         method: 'DELETE',
       });
       if (response.ok) {

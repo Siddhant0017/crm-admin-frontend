@@ -8,7 +8,7 @@ const EmployeeSummaryTable = () => {
 
   const fetchEmployees = async () => {
     try {
-      const res = await fetch(`${API_URL}/employees/summary/all`);
+      const res = await fetch(`${API_URL}/api/employees/summary/all`);
       const data = await res.json();
       setEmployees(data);
     } catch (err) {
